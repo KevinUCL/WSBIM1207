@@ -29,7 +29,7 @@ After this lesson, you will be able to:
 - Implement best practices in data table formatting
 - Identify and address common formatting mistakes
 - Understand approaches for handling dates in spreadsheets
-- Utilize basic quality control features and data manipulation practices
+- Utilise basic quality control features and data manipulation practices
 - Effectively export data from spreadsheet programs
 
 Spreadsheets are good for data entry. Therefore we have a lot of data
@@ -62,18 +62,11 @@ published by O'Reilly
 
 ### Spreadsheet programs {-}
 
-Many spreadsheet programs are available. Since most participants utilize Excel as their primary spreadsheet program, this lesson will make use of Excel examples.
-
-A free spreadsheet program that can also be used is LibreOffice
-
-Commands may differ a bit between programs, but the general idea
-is the same.
-
-> **Exercise**
-> - How many people have used spreadsheets in their research?
-> - How many people have accidentally done something that made them
-> frustrated or sad?
-
+Many spreadsheet programs are available. Since most participants
+utilise Excel as their primary spreadsheet program, this lesson will
+make use of Excel examples. A free spreadsheet program that can also
+be used is LibreOffice. Commands may differ a bit between programs,
+but the general idea is the same.
 
 Spreadsheets encompass a lot of the things we need to be able to do as
 researchers. We can use them for:
@@ -84,7 +77,37 @@ researchers. We can use them for:
 - Statistics
 - Plotting
 
-We do a lot of different operations in spreadsheets. What kind of operations do you do in spreadsheets? Which ones do you think spreadsheets are good for?
+
+Here are three examples from research papers:
+
+```{r, results='markup', fig.cap="A figure from a bioinformatics paper ([Hugues et al. (2014)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3866554/)) that compares different proteomics data processing methods (along the columns) and how (1) these methods control false positive rate for spiked-in data, (2) their effect on the variabilty due to different operators, and (2) how they affect the root mean square error (RMSE).", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
+knitr::include_graphics("./figs/tab1.png")
+```
+
+
+```{r, results='markup', fig.cap="This table summarises the spatial proteomics experiments that were re-analysed as part a meta-analysis by [Gatto et al. (2018)](https://www.sciencedirect.com/science/article/pii/S1367593118301339). ", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
+knitr::include_graphics("./figs/tab2.png")
+```
+
+```{r, results='markup', fig.cap="Parts of the quantitative data of a spatial proteomics dataset by [Geladaki et al. (2019)](https://www.nature.com/articles/s41467-018-08191-w). The supplementary table is available [here](https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-018-08191-w/MediaObjects/41467_2018_8191_MOESM4_ESM.xlsx)", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
+knitr::include_graphics("./figs/tab3a.png")
+```
+
+```{r, results='markup', fig.cap="Luminescence read-out of a 96 well plate. The file is available [here](https://github.com/UCLouvain-CBIO/WSBIM1207/files/2836821/luminescence.xlsx).", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
+knitr::include_graphics("./figs/tab4.png")
+```
+
+
+`r msmbstyle::question_begin()`
+Discuss the following points with your neighbour
+
+- How many people have used spreadsheets, in their research, courses,
+  or at home?
+- What kind of operations do you do in spreadsheets?
+- Which ones do you think spreadsheets are good for?
+- How many people have accidentally done something that made them
+  frustrated or sad?
+`r msmbstyle::question_end()`
 
 ## Problems with Spreadsheets
 
@@ -111,7 +134,7 @@ command-line based statistics program like R or SAS, it’s practically
 impossible to apply a calculation to one observation in your
 dataset but not another unless you’re doing it on purpose.
 
-### Using Spreadsheets for Data Entry and Cleaning
+### Using Spreadsheets for Data Entry and Cleaning {-}
 
 However, there are circumstances where you might want to use a spreadsheet
 program to produce “quick and dirty” calculations or figures, and data
@@ -124,7 +147,7 @@ preliminary summary statistics.
 In this lesson, we will assume that you are most likely using Excel as
 your primary spreadsheet program - there are others (gnumeric, Calc
 from OpenOffice), and their functionality is similar, but Excel seems
-to be the program most used by biologists and ecologists.
+to be the program most used by biologists and biomedical researchers.
 
 In this lesson we're going to talk about:
 
@@ -136,17 +159,26 @@ In this lesson we're going to talk about:
 
 ## Formatting data tables in spreadsheets
 
-Questions:
+**Questions**
+
 - How do we format data in spreadsheets for effective data use?
 
-Objectives:
+**Objectives**
 
-- Describe best practices for data entry and formatting in spreadsheets.
-- Apply best practices to arrange variables and observations in a spreadsheet.
+- Describe best practices for data entry and formatting in
+  spreadsheets.
 
-Keypoints:
-- Never modify your raw data. Always make a copy before making any changes.
-- Keep track of all of the steps you take to clean your data in a plain text file.
+- Apply best practices to arrange variables and observations in a
+  spreadsheet.
+
+**Keypoints**
+
+- Never modify your raw data. Always make a copy before making any
+  changes.
+
+- Keep track of all of the steps you take to clean your data in a
+  plain text file.
+
 - Organize your data according to tidy data principles.
 
 The most common mistake made is treating spreadsheet programs like lab
@@ -173,18 +205,18 @@ choices can limit your ability to work with the data in other programs
 or have the you-of-6-months-from-now or your collaborator work with
 the data.
 
-> Note: the best layouts/formats (as well as software and interfaces)
-> for data entry and data analysis might be different. It is important
-> to take this into account, and ideally automate the conversion from
-> one to another.
+> **Note:** the best layouts/formats (as well as software and
+> interfaces) for data entry and data analysis might be different. It
+> is important to take this into account, and ideally automate the
+> conversion from one to another.
 
 ### Keeping track of your analyses
 
 When you're working with spreadsheets, during data clean up or
 analyses, it's very easy to end up with a spreadsheet that looks very
 different from the one you started with. In order to be able to
-reproduce your analyses or figure out what you did when Reviewer #3
-asks for a different analysis, you should
+reproduce your analyses or figure out what you did when a reviewer or
+instructor asks for a different analysis, you should
 
 - create a new file with your cleaned or analyzed data. Don't modify
   the original dataset, or you will never know where you started!
@@ -200,9 +232,12 @@ This might be an example of a spreadsheet setup:
 
 Put these principles in to practice today during your Exercises.
 
-> Note: This is out of scope for this lesson, but for information on
-  how to maintain version control over your data, look at our lesson
-  on ['Git'](http://swcarpentry.github.io/git-novice/).
+> **Note:** This is out of scope for this lesson, but for information
+> on how to maintain version control over your data, look at our
+> lesson on ['Git'](http://swcarpentry.github.io/git-novice/). See
+> also this [blog post](https://lgatto.github.io/github-intro/) for a
+> quick tutorial or @Perez-Riverol:2016 for a more research-oriented
+> use-case.
 
 
 ### Structuring data in spreadsheets
@@ -234,10 +269,14 @@ look at all of one species or look at different weight distributions by sex,
 it would be hard to do this using this data setup. If instead we put sex and species
 in different columns, you can see that it would be much easier.
 
-### Columns for variables and rows for observations
 
-The rule of thumb, when setting up a datasheet, is columns =
-variables, rows = observations, cells = data (values).
+The rule of thumb, when setting up a datasheet, is
+
+>  **Columns for variables and rows for observations**
+
+- columns = variables
+- rows = observations
+- cells = data (values)
 
 So, instead we should have:
 
@@ -310,6 +349,7 @@ Questions:
   and how can we avoid them?
 
 Objectives:
+
 - Recognize and resolve common spreadsheet formatting problems.
 
 Keypoints:
@@ -326,10 +366,10 @@ Keypoints:
 - Avoid special characters in your data.
 - Record metadata in a separate plain text file.
 
-This lesson is meant to be used as a reference for discussion as
-learners identify issues with the messy dataset discussed in the
-previous lesson. Instructors: don't go through this lesson except to
-refer to responses to the exercise in the previous lesson.
+<!-- This lesson is meant to be used as a reference for discussion as -->
+<!-- learners identify issues with the messy dataset discussed in the -->
+<!-- previous lesson. Instructors: don't go through this lesson except to -->
+<!-- refer to responses to the exercise in the previous lesson. -->
 
 There are a few potential errors to be on the lookout for in your own
 data as well as data from collaborators or the Internet. If you are
@@ -409,7 +449,7 @@ Instead you can freeze the column headers so that they remain visible even when 
 
 [Documentation on how to freeze column headers](https://support.office.com/en-ca/article/Freeze-column-headings-for-easy-scrolling-57ccce0c-cf85-4725-9579-c5d13106ca6a)
 
-## Not filling in zeros {#zeros}
+### Not filling in zeros {#zeros}
 
 It might be that when you're measuring something, it's usually a zero,
 say the number of times a rabbit is observed in the survey. Why bother
@@ -432,7 +472,7 @@ of this, it's very important to record zeros as zeros and truly
 missing data as nulls.
 
 
-## Using problematic null values {#null}
+### Using problematic null values {#null}
 
 **Example**: using -999 or other numerical values (or zero) to
   represent missing data.
@@ -462,11 +502,9 @@ to represent missing (null) values. How these values are interpreted
 will depend on the software you use to analyze your data. It is
 essential to use a clearly defined and consistent null indicator.
 
-Blanks (most applications) and NA (for R) are good choices. White et
-al, 2013, explain good choices for indicating null values for
-different software applications in their article:
-
-[Nine simple ways to make it easier to (re)use your data.](https://peerj.com/preprints/7/) Ideas in Ecology and Evolution.
+Blanks (most applications) and NA (for R) are good
+choices. @White:2013 explain good choices for indicating null values
+for different software applications in their article:
 
 ![](./figs/3_white_table_1.jpg)
 
@@ -521,7 +559,7 @@ you need both these measurements, design your data sheet to include
 this information. For example, include one column for number of
 individuals and a separate column for sex.
 
-## Using problematic field names {#field_name}
+### Using problematic field names {#field_name}
 
 Choose descriptive field names, but be careful not to include spaces,
 numbers, or special characters of any kind. Spaces can be
@@ -623,6 +661,7 @@ Questions:
 - What are good approaches for handling dates in spreadsheets?
 
 Objectives:
+
 - Describe how dates are stored and formatted in spreadsheets.
 - Describe the advantages of alternative date formatting in spreadsheets.
 - Demonstrate best practices for entering dates in spreadsheets.
@@ -645,10 +684,10 @@ family of products. If you will later need to export the data and need to
 conserve the timestamps, you are better off handling them using one of the solutions discussed below.
 
 Additionally, Excel can [turn things that aren't dates into
-dates](https://nsaunders.wordpress.com/2012/10/22/gene-name-errors-and-excel-lessons-not-learned/),
-for example names or identifiers like MAR1, DEC1, OCT4. So if you're
-avoiding the date format overall, it's easier to identify these
-issues.
+dates](https://nsaunders.wordpress.com/2012/10/22/gene-name-errors-and-excel-lessons-not-learned/)
+(@Zeeberg:2004), for example names or identifiers like MAR1, DEC1,
+OCT4. So if you're avoiding the date format overall, it's easier to
+identify these issues.
 
 `r msmbstyle::question_begin()`
 
@@ -666,11 +705,11 @@ MONTH()
 DAY()
 ```
 
-(Make sure the new column is formatted as a number and not as a date.)
+Make sure the new column is formatted as a number and not as a date.
 
-You can see that even though you wanted the year to be 2014, your
-spreadsheet program automatically interpreted it as 2015, the year you
-entered the data.
+<!-- You can see that even though you wanted the year to be 2014, your -->
+<!-- spreadsheet program automatically interpreted it as 2015, the year you -->
+<!-- entered the data. -->
 
 `r msmbstyle::question_end()`
 
@@ -744,15 +783,24 @@ Excel](http://uc3.cdlib.org/2014/04/09/abandon-all-hope-ye-who-enter-dates-in-ex
 
 Spreadsheet programs have numerous “useful features” which allow them to handle dates in a variety of ways.
 
-![Many formats, many ambiguities](./figs/5_excel_dates_1.jpg)
+
+```{r, results='markup', fig.cap="Many formats, many ambiguities", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
+knitr::include_graphics("./figs/5_excel_dates_1.jpg")
+```
 
 But these "features" often allow ambiguity to creep into your data. Ideally, data should be as unambiguous as possible.
 
-#### Dates stored as integers
+### Dates stored as integers
 
-The first thing you need to know is that Excel stores dates as numbers - see the last column in the above figure. Essentially, it counts the days from a default of December 31, 1899, and thus stores July 2, 2014 as  the serial number 41822.
+The first thing you need to know is that Excel stores dates as numbers
+- see the last column in the above figure. Essentially, it counts the
+days from a default of December 31, 1899, and thus stores July 2, 2014
+as the serial number 41822[^excel1].
 
-(But wait. That’s the default on my version of Excel. We’ll get into how this can introduce problems down the line later in this lesson. )
+[^excel1]: But wait. That's the default on my version of Excel. We'll
+           get into how this can introduce problems down the line
+           later in this lesson.
+
 
 This serial number thing can actually be useful in some circumstances. By using
 the above functions we can easily add days, months or years to a given date.
@@ -799,7 +847,8 @@ dates if we then open the `csv` file in Excel?
 
 
 `r msmbstyle::solution_begin()`
-- Click to the "dates" tab of the workbook and double-click on any of
+
+- Click on the "dates" tab of the workbook and double-click on any of
   the values in the `Date collected` column. Notice that the dates
   display with the year 2015.
 
@@ -811,15 +860,17 @@ dates if we then open the `csv` file in Excel?
   Choose `Save Active Sheet`.
 
 - Navigate to the file in your finder application. Right click and
-  select `Open With`. Choose a plain text editor application and view
-  the file. Notice that the dates display as month/day without any
-  year information. > - Now right click on the file again and open
-  with Excel. Notice that the dates display with the current year, not
-  2015.
+  select `Open With`. Choose a plain text editor such as Notepad and
+  view the file. Notice that the dates display as month/day without
+  any year information.
 
-As you can see, exporting data from Excel and then importing it back into Excel fundamentally changed the data!
+- Now right click on the file again and open with Excel. Notice that
+  the dates display with the current year, not 2015.
+
+As you can see, exporting data from Excel and then importing it back
+into Excel fundamentally changed the data!
+
 `r msmbstyle::solution_end()`
-
 
 **Note** You will notice that when exporting into a text-based format
 (such as CSV), Excel will export its internal date integer instead of
@@ -1073,7 +1124,7 @@ outliers and odd values.
 ![](./figs/sorting_solution_2.png)
 `r msmbstyle::solution_end()`
 
-### Conditional formatting
+#### Conditional formatting {-}
 
 Conditional formatting basically can do something like color code your
 values by some criteria or lowest to highest. This makes it easy to
@@ -1288,24 +1339,23 @@ the commas which are a part of the data values will be interpreted as
 delimiters.
 
 
-
 For example, our data might look like this:
 
 ```
 species_id,genus,species,taxa
 AB,Amphispiza,bilineata,Bird
-AH,Ammospermophilus,harrisi,Rodent-not,censused
+AH,Ammospermophilus,harrisi,Rodent, not censused
 AS,Ammodramus,savannarum,Bird
 BA,Baiomys,taylori,Rodent
 ```
 
-In the record `AH,Ammospermophilus,harrisi,Rodent-not,censused` the
-value for `taxa` includes a comma (`Rodent-not,censused`).  If we try
+In the record `AH,Ammospermophilus,harrisi,Rodent, not censused` the
+value for `taxa` includes a comma (`Rodent, not censused`).  If we try
 to read the above into Excel (or other spreadsheet program), we will
 get something like this:
 
 
-```{r, results='markup', echo=FALSE, purl=FALSE, out.width='40%', fig.align='center'}
+```{r, results='markup', fig.cap = "The risks of having commas inside comma-separated data.", echo=FALSE, purl=FALSE, out.width='80%', fig.align='center'}
 knitr::include_graphics("./figs/csv-mistake.png")
 ```
 
@@ -1324,7 +1374,7 @@ data might look like this:
 ```
 species_id,genus,species,taxa
 "AB","Amphispiza","bilineata","Bird"
-"AH","Ammospermophilus","harrisi","Rodent-not, censused"
+"AH","Ammospermophilus","harrisi","Rodent, not censused"
 "AS","Ammodramus","savannarum","Bird"
 "BA","Baiomys","taylori","Rodent"
 ```
@@ -1335,9 +1385,15 @@ quotation marks as delimiting characters.
 
 Alternatively, if you are working with data that contains commas, you
 likely will need to use another delimiter when working in a
-spreadsheet. In this case, consider using tabs as your delimiter and
+spreadsheet[^decsep]. In this case, consider using tabs as your delimiter and
 working with TSV files. TSV files can be exported from spreadsheet
 programs in the same way as CSV files.
+
+[^decsep]: This is of course particularly relevant in European
+           countries where the comma is used as a decimal
+           separator. In such cases, the default value separator in a
+           csv file will be the semi-colon (;), or values will be
+           systematically quoted.
 
 If you are working with an already existing dataset in which the data
 values are not included in "" but which have commas as both delimiters
@@ -1363,7 +1419,7 @@ knitr::include_graphics("./figs/analysis.png")
 ```
 
 A typical data analysis worflow is illustrated in figure
-\@ref(fig:analysis)), where data is repeatedly tranformed, visualised,
+\@ref(fig:analysis), where data is repeatedly tranformed, visualised,
 modelled. This iteration is repeated multiple times until the data is
 understood. In many real-life cases, however, most time is spend in
 clearning up and preparing the data, rather than actually analysing
@@ -1373,3 +1429,47 @@ An agile data analysis workflow, with several fast iteration of the
 transform/visualise/model cycle are only feasible is the data is
 formatted in a predictable way and one can reason on the data without
 having to look at it and/or fix it.
+
+
+## Additional exercises
+
+`r msmbstyle::question_begin()`
+Download the supplementary
+[table](https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-018-08191-w/MediaObjects/41467_2018_8191_MOESM4_ESM.xlsx)
+from [Geladaki et
+al. (2019)](https://www.nature.com/articles/s41467-018-08191-w) that we discussed above.
+
+Using the best practice documented above, export the file to a
+text-based spreadsheet (`csv`, `tsv`, ...). If necessary, manually fix
+the table, but making sure you keep a copy of the original data and
+document your modifications.
+`r msmbstyle::question_end()`
+
+`r msmbstyle::question_begin()`
+
+- Download the *'Luminescence read-out of a 96 well plate'* table
+  presented as example above and reformat it in a way that makes it
+  amenable to data analysis. Hint: The letters A to H and the numbers
+  1 to 12 represent respectively the rows and the columns of the
+  plate.
+
+- The quantitative values in that data were formatted conditionally,
+  using a colour scale to highlight different colour intensities. We
+  have seen that this can be a useful feature for quality control. Can
+  you interpret the colour pattern and make conclusion with respect to
+  possibly quality implications.
+
+`r msmbstyle::question_end()`
+
+`r msmbstyle::question_begin()`
+
+Imagine the following experiment, and produce a data table, making up
+values for a dozen of observations.
+
+> Rodents, either mice or rats, where collected on various days by
+> either operator A or B. Their weight and tail length was measured
+> and were then assigned to either a control group (and administered
+> water) or a condition group (and administered drug X). Exactly one
+> week later, the measurements on the animal were repeated.
+
+`r msmbstyle::question_end()`

@@ -18,134 +18,166 @@
 
 ## What is R? What is RStudio?
 
-The term `R` is used to refer to both the programming language and the
-software that interprets the scripts written using it.
+The term [R](https://www.r-project.org/) is used to refer to both the
+*programming language*, the *environment for statistical computing*
+and *the software* that interprets the scripts written using it.
 
-[RStudio](https://rstudio.com) is currently a very popular way to not only write
-your R scripts but also to interact with the R software. To function correctly,
-RStudio needs R and therefore both need to be installed on your computer.
+[RStudio](https://rstudio.com) is currently a very popular way to not
+only write your R scripts but also to interact with the R
+software[^plainr]. To function correctly, RStudio needs R and
+therefore both need to be installed on your computer.
 
+[^plainr]: As opposed to using R directly from the command line
+    console. There exist other software that interface and integrate
+    with R, but RStudio is particularly well suited for beginners and
+    while providing numerous very advanced features.
 
 The [RStudio IDE Cheat
 Sheet](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf)
 provides much more information that will be covered here, but can be
 useful to learn keyboard shortcuts and discover new features.
 
-
 ## Why learn R?
 
 ### R does not involve lots of pointing and clicking, and that's a good thing {-}
 
-The learning curve might be steeper than with other software, but with R, the
-results of your analysis do not rely on remembering a succession of pointing
-and clicking, but instead on a series of written commands, and that's a good
-thing! So, if you want to redo your analysis because you collected more data,
-you don't have to remember which button you clicked in which order to obtain
-your results; you just have to run your script again.
+The learning curve might be steeper than with other software, but with
+R, the results of your analysis do not rely on remembering a
+succession of pointing and clicking, but instead on a series of
+written commands, and that's a good thing! So, if you want to redo
+your analysis because you collected more data, you don't have to
+remember which button you clicked in which order to obtain your
+results; you just have to run your script again.
 
-Working with scripts makes the steps you used in your analysis clear, and the
-code you write can be inspected by someone else who can give you feedback and
-spot mistakes.
+Working with scripts makes the steps you used in your analysis clear,
+and the code you write can be inspected by someone else who can give
+you feedback and spot mistakes.
 
-Working with scripts forces you to have a deeper understanding of what you are
-doing, and facilitates your learning and comprehension of the methods you use.
+Working with scripts forces you to have a deeper understanding of what
+you are doing, and facilitates your learning and comprehension of the
+methods you use.
 
 ### R code is great for reproducibility {-}
 
-Reproducibility is when someone else (including your future self) can obtain the
-same results from the same dataset when using the same analysis.
+Reproducibility is when someone else (including your future self) can
+obtain the same results from the same dataset when using the same
+analysis.
 
-R integrates with other tools to generate manuscripts from your code. If you
-collect more data, or fix a mistake in your dataset, the figures and the
-statistical tests in your manuscript are updated automatically.
+R integrates with other tools to generate manuscripts from your
+code. If you collect more data, or fix a mistake in your dataset, the
+figures and the statistical tests in your manuscript are updated
+automatically.
 
-An increasing number of journals and funding agencies expect analyses to be
-reproducible, so knowing R will give you an edge with these requirements.
+An increasing number of journals and funding agencies expect analyses
+to be reproducible, so knowing R will give you an edge with these
+requirements.
+
+We will learn more about reproducibility and reproducible research in
+chapter \@ref(sec:rr).
 
 ### R is interdisciplinary and extensible {-}
 
-With 10,000+ packages that can be installed to extend its capabilities, R
-provides a framework that allows you to combine statistical approaches from many
-scientific disciplines to best suit the analytical framework you need to analyze your
-data. For instance, R has packages for image analysis, GIS, time series, population
+With 10000+ packages[^whatarepkgs] that can be installed to extend its
+capabilities, R provides a framework that allows you to combine
+statistical approaches from many scientific disciplines to best suit
+the analytical framework you need to analyze your data. For instance,
+R has packages for image analysis, GIS, time series, population
 genetics, and a lot more.
 
+[^whatarepkgs]: i.e. add-ons that confer R with new functionality,
+    such as bioinformatics data analysis - see chapter
+    \@ref(sec:bioinfo)
+
+```{r, fig.cap = "Exponential increase of the number of packages available on [CRAN](https://cran.r-project.org/), the Comprehensive R Archive Network. From the R Journal, Volume 10/2, December 2018.", echo = FALSE, message = FALSE}
+knitr::include_graphics("./figs/cran.png")
+```
 
 ### R works on data of all shapes and sizes {-}
 
-The skills you learn with R scale easily with the size of your dataset. Whether
-your dataset has hundreds or millions of lines, it won't make much difference to
-you.
+The skills you learn with R scale easily with the size of your
+dataset. Whether your dataset has hundreds or millions of lines, it
+won't make much difference to you.
 
-R is designed for data analysis. It comes with special data structures and data
-types that make handling of missing data and statistical factors convenient.
+R is designed for data analysis. It comes with special data structures
+and data types that make handling of missing data and statistical
+factors convenient.
 
-R can connect to spreadsheets, databases, and many other data formats, on your
-computer or on the web.
+R can connect to spreadsheets, databases, and many other data formats,
+on your computer or on the web.
 
 
 ### R produces high-quality graphics {-}
 
-The plotting functionalities in R are endless, and allow you to adjust any
-aspect of your graph to convey most effectively the message from your data.
+The plotting functionalities in R are endless, and allow you to adjust
+any aspect of your graph to convey most effectively the message from
+your data.
 
 
 ### R has a large and welcoming community {-}
 
-Thousands of people use R daily. Many of them are willing to help you through
-mailing lists and websites such as [Stack Overflow](https://stackoverflow.com/), or on the [RStudio community](https://community.rstudio.com/).
+Thousands of people use R daily. Many of them are willing to help you
+through mailing lists and websites such as [Stack
+Overflow](https://stackoverflow.com/), or on the [RStudio
+community](https://community.rstudio.com/). These broad user community
+extends to specialised areas such as bioinformatics.
 
 
 ### Not only is R free, but it is also open-source and cross-platform {-}
 
 Anyone can inspect the source code to see how R works. Because of this
-transparency, there is less chance for mistakes, and if you (or someone else)
-find some, you can report and fix bugs.
+transparency, there is less chance for mistakes, and if you (or
+someone else) find some, you can report and fix bugs.
 
 ## Knowing your way around RStudio
 
-Let's start by learning about [RStudio](https://www.rstudio.com/), which is an
-Integrated Development Environment (IDE) for working with R.
+Let's start by learning about [RStudio](https://www.rstudio.com/),
+which is an Integrated Development Environment (IDE) for working with
+R.
 
-The RStudio IDE open-source product is free under the
-[Affero General Public License (AGPL) v3](https://www.gnu.org/licenses/agpl-3.0.en.html).
-The RStudio IDE is also available with a commercial license and priority email
-support from RStudio, Inc.
+The RStudio IDE open-source product is free under the [Affero General
+Public License (AGPL) v3](https://www.gnu.org/licenses/agpl-3.0.en.html).
+The RStudio IDE is also available with a commercial license and
+priority email support from RStudio, Inc.
 
-We will use RStudio IDE to write code, navigate the files on our computer,
-inspect the variables we are going to create, and visualize the plots we will
-generate. RStudio can also be used for other things (e.g., version control,
-developing packages, writing Shiny apps) that we will not cover during the
-workshop.
+We will use RStudio IDE to write code, navigate the files on our
+computer, inspect the variables we are going to create, and visualize
+the plots we will generate. RStudio can also be used for other things
+(e.g., version control, developing packages, writing Shiny apps) that
+we will not cover during the workshop.
 
 
 ```{r, results='markup', fig.cap="RStudio interface screenshot. Clockwise from top left: Source, Environment/History, Files/Plots/Packages/Help/Viewer, Console.", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("./figs/rstudio-screenshot.png")
 ```
 
+RStudio is divided into 4 "Panes":
 
-RStudio is divided into 4 "Panes": the **Source** for your scripts and documents
-(top-left, in the default layout), your **Environment/History** (top-right),
-your **Files/Plots/Packages/Help/Viewer** (bottom-right), and
-the R **Console** (bottom-left). The placement of these
-panes and their content can be customized (see menu, Tools -> Global Options ->
-Pane Layout).
+- the **Source** for your scripts and documents (top-left, in the
+  default layout)
+- your **Environment/History** (top-right),
+- your **Files/Plots/Packages/Help/Viewer** (bottom-right), and
+- the R **Console** (bottom-left).
 
-One of the advantages of using RStudio is that all the information
-you need to write code is available in a single window. Additionally, with many
-shortcuts, autocompletion, and highlighting for the major file types you use
-while developing in R, RStudio will make typing easier and less error-prone.
+The placement of these panes and their content can be customized (see
+menu, `Tools -> Global Options -> Pane Layout`).
+
+One of the advantages of using RStudio is that all the information you
+need to write code is available in a single window. Additionally, with
+many shortcuts, **autocompletion**, and **highlighting** for the major
+file types you use while developing in R, RStudio will make typing
+easier and less error-prone.
 
 ## Getting set up
 
 It is good practice to keep a set of related data, analyses, and text
-self-contained in a single folder, called the **working directory**. All of the
-scripts within this folder can then use *relative paths* to files that indicate
-where inside the project a file is located (as opposed to absolute paths, which
-point to where a file is on a specific computer). Working this way makes it
-a lot easier to move your project around on your computer and share it with
-others without worrying about whether or not the underlying scripts will still
-work.
+self-contained in a single folder, called the **working
+directory**. All of the scripts within this folder can then use
+**relative paths** to files that indicate where inside the project a
+file is located (as opposed to absolute paths, which point to where a
+file is on a specific computer). Working this way makes it a lot
+easier to move your project around on your computer and share it with
+others without worrying about whether or not the underlying scripts
+will still work.
 
 RStudio provides a helpful set of tools to do this through its "Projects"
 interface, which not only creates a working directory for you, but also remembers
@@ -157,13 +189,11 @@ tutorial below.
 1. Start RStudio.
 2. Under the `File` menu, click on `New project`. Choose `New directory`, then
   `New project`.
-3. Enter a name for this new folder (or "directory"), and choose a convenient
-  location for it. This will be your **working directory** for the rest of the
-  day (e.g., `~/data-carpentry`).
+3. Enter a name for this new folder (or "directory"), and choose a
+   convenient location for it. This will be your **working directory**
+   for this session (or whole course) (e.g., `wsbim1207`).
 4. Click on `Create project`.
-5. Download the [code handout](./code-handout.R), place it in your working
-  directory and rename it (e.g., `data-carpentry-script.R`).
-6. (Optional) Set Preferences to 'Never' save workspace in RStudio.
+5. (Optional) Set Preferences to 'Never' save workspace in RStudio.
 
 RStudio's default preferences generally work well, but saving a workspace to
 .RData can be cumbersome, especially if you are working with larger datasets.
@@ -182,41 +212,48 @@ can be especially helpful when you have multiple projects. In general, you may
 create directories (folders) for **scripts**, **data**, and **documents**.
 
  - **`data/`** Use this folder to store your raw data and intermediate
-   datasets you may create for the need of a particular analysis. For the sake
-   of transparency and [provenance](https://en.wikipedia.org/wiki/Provenance),
-   you should *always* keep a copy of your raw data accessible and do as much
-   of your data cleanup and preprocessing programmatically (i.e., with scripts,
-   rather than manually) as possible. Separating raw data from processed data
-   is also a good idea. For example, you could have files
-   `data/raw/tree_survey.plot1.txt` and `...plot2.txt` kept separate from
-   a `data/processed/tree.survey.csv` file generated by the
-   `scripts/01.preprocess.tree_survey.R` script.
- - **`documents/`** This would be a place to keep outlines, drafts, and other
-   text.
- - **`scripts/`** This would be the location to keep your R scripts for
-   different analyses or plotting, and potentially a separate folder for your
-   functions (more on that later).
+   datasets you may create for the need of a particular analysis. For
+   the sake of transparency and
+   [provenance](https://en.wikipedia.org/wiki/Provenance), you should
+   *always* keep a copy of your raw data accessible and do as much of
+   your data cleanup and preprocessing programmatically (i.e., with
+   scripts, rather than manually) as possible. Separating raw data
+   from processed data is also a good idea. For example, you could
+   have files `data/raw/tree_survey.plot1.txt` and `...plot2.txt` kept
+   separate from a `data/processed/tree.survey.csv` file generated by
+   the `scripts/01.preprocess.tree_survey.R` script.
+ - **`documents/`** This would be a place to keep outlines, drafts,
+   and other text.
+ - **`scripts/`** (or `src`) This would be the location to keep your R
+   scripts for different analyses or plotting, and potentially a
+   separate folder for your functions (more on that later).
 
-You may want additional directories or subdirectories depending on your project
-needs, but these should form the backbone of your working directory.
+You may want additional directories or subdirectories depending on
+your project needs, but these should form the backbone of your working
+directory.
 
 
 ```{r, results='markup', fig.cap="Example of a working directory structure.", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("./figs/working-directory-structure.png")
 ```
 
-For this workshop, we will need a `data/` folder to store our raw data, and we
-will use `data_output/` for when we learn how to export data as CSV files, and
-`fig_output/` folder for the figures that we will save.
+For this course, we will need a `data/` folder to store our raw data,
+and we will use `data_output/` for when we learn how to export data as
+CSV files, and `fig_output/` folder for the figures that we will save.
 
-* Under the `Files` tab on the right of the screen, click on `New Folder` and
-  create a folder named `data` within your newly created working directory
-  (e.g., `~/data-carpentry/data`). (Alternatively, type `dir.create("data")` at
-  your R console.) Repeat these operations to create a `data_output/` and a
-  `fig_output` folders.
+`r msmbstyle::question_begin()`
 
-We are going to keep the script in the root of our working directory because we
-are only going to use one file and it will make things easier.
+Under the `Files` tab on the right of the screen, click on `New Folder` and
+create a folder named `data` within your newly created working directory
+(e.g., `~/wsbim1207/data`). (Alternatively, type `dir.create("data")` at
+your R console.) Repeat these operations to create a `data_output/` and a
+`fig_output` folders.
+
+`r msmbstyle::question_end()`
+
+We are going to keep the script in the root of our working directory
+because we are only going to use one file and it will make things
+easier.
 
 Your working directory should now look like this:
 
@@ -226,91 +263,118 @@ knitr::include_graphics("./figs/r-starting-how-it-should-look-like.png")
 
 ### The working directory
 
-The working directory is an important concept to understand. It is the place
-from where R will be looking for and saving the files. When you write code for
-your project, it should refer to files in relation to the root of your working
-directory and only need files within this structure.
+The working directory is an important concept to understand. It is the
+place from where R will be looking for and saving the files. When you
+write code for your project, it should refer to files in relation to
+the root of your working directory and only need files within this
+structure.
 
-Using RStudio projects makes this easy and ensures that your working directory
-is set properly. If you need to check it, you can use `getwd()`. If for some
-reason your working directory is not what it should be, you can change it in the
-RStudio interface by navigating in the file browser where your working directory
-should be, and clicking on the blue gear icon "More", and select "Set As Working
-Directory". Alternatively you can use `setwd("/path/to/working/directory")` to
-reset your working directory. However, your scripts should not include this line
-because it will fail on someone else's computer.
+Using RStudio projects makes this easy and ensures that your working
+directory is set properly. If you need to check it, you can use
+`getwd()`. If for some reason your working directory is not what it
+should be, you can change it in the RStudio interface by navigating in
+the file browser where your working directory should be, and clicking
+on the blue gear icon `More`, and select `Set As Working Directory`.
+Alternatively you can use `setwd("/path/to/working/directory")` to
+reset your working directory. However, your scripts should not include
+this line because it will fail on someone else's computer.
 
+**Example**
+
+The shema below represents the working directory `wsbim1207` with the
+`data` and `fig_output` sub-directories, and 2 files in the latter:
+
+```
+wsbim1207/data/
+         /fig_output/fig1.pdf
+         /fig_output/fig2.png
+```
+
+If we were in the working directory, we could refer to the `fig1.pdf`
+file using the relative path `wsbim1207/fig_output/fig1.pdf` or the
+absolute path `/home/user/wsbim1207/fig_output/fig1.pdf`.
+
+If we were in the `data` directory, we would use the relative path
+`../fig_output/fig1.pdf` or the same absolute path
+`/home/user/wsbim1207/fig_output/fig1.pdf`.
 
 ## Interacting with R
 
-The basis of programming is that we write down instructions for the computer to
-follow, and then we tell the computer to follow those instructions. We write, or
-*code*, instructions in R because it is a common language that both the computer
-and we can understand. We call the instructions *commands* and we tell the
-computer to follow the instructions by *executing* (also called *running*) those
-commands.
+The basis of programming is that we write down instructions for the
+computer to follow, and then we tell the computer to follow those
+instructions. We write, or *code*, instructions in R because it is a
+common language that both the computer and we can understand. We call
+the instructions *commands* and we tell the computer to follow the
+instructions by *executing* (also called *running*) those commands.
 
-There are two main ways of interacting with R: by using the console or by using
-script files (plain text files that contain your code). The console pane (in
-RStudio, the bottom left panel) is the place where commands written in the R
-language can be typed and executed immediately by the computer. It is also where
-the results will be shown for commands that have been executed. You can type
-commands directly into the console and press `Enter` to execute those commands,
-but they will be forgotten when you close the session.
+There are two main ways of interacting with R: by using the
+**console** or by using **scripts** (plain text files that contain
+your code). The console pane (in RStudio, the bottom left panel) is
+the place where commands written in the R language can be typed and
+executed immediately by the computer. It is also where the results
+will be shown for commands that have been executed. You can type
+commands directly into the console and press `Enter` to execute those
+commands, but they will be forgotten when you close the session.
 
-Because we want our code and workflow to be reproducible, it is better to type
-the commands we want in the script editor, and save the script. This way, there
-is a complete record of what we did, and anyone (including our future selves!)
-can easily replicate the results on their computer.
+Because we want our code and workflow to be reproducible, it is better
+to type the commands we want in the script editor, and save the
+script. This way, there is a complete record of what we did, and
+anyone (including our future selves!)  can easily replicate the
+results on their computer.
 
-RStudio allows you to execute commands directly from the script editor by using
-the <kbd>`Ctrl`</kbd> + <kbd>`Enter`</kbd> shortcut (on Macs, <kbd>`Cmd`</kbd> +
-<kbd>`Return`</kbd> will work, too). The command on the current line in the
-script (indicated by the cursor) or all of the commands in the currently
-selected text will be sent to the console and executed when you press
-<kbd>`Ctrl`</kbd> + <kbd>`Enter`</kbd>. You can find other keyboard shortcuts in this [RStudio cheatsheet about the RStudio IDE](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf).
+RStudio allows you to execute commands directly from the script editor
+by using the `Ctrl` + `Enter` shortcut (on Macs, `Cmd` + `Return` will
+work, too). The command on the current line in the script (indicated
+by the cursor) or all of the commands in the currently selected text
+will be sent to the console and executed when you press `Ctrl` +
+`Enter`. You can find other keyboard shortcuts in this [RStudio
+cheatsheet about the RStudio
+IDE](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf).
 
-At some point in your analysis you may want to check the content of a variable
-or the structure of an object, without necessarily keeping a record of it in
-your script. You can type these commands and execute them directly in the
-console.  RStudio provides the <kbd>`Ctrl`</kbd> + <kbd>`1`</kbd> and
-<kbd>`Ctrl`</kbd> + <kbd>`2`</kbd> shortcuts allow you to jump between the
-script and the console panes.
+At some point in your analysis you may want to check the content of a
+variable or the structure of an object, without necessarily keeping a
+record of it in your script. You can type these commands and execute
+them directly in the console.  RStudio provides the `Ctrl` + `1` and
+`Ctrl` + `2` shortcuts allow you to jump between the script and the
+console panes.
 
-If R is ready to accept commands, the R console shows a `>` prompt. If it
-receives a command (by typing, copy-pasting or sent from the script editor using
-<kbd>`Ctrl`</kbd> + <kbd>`Enter`</kbd>), R will try to execute it, and when
-ready, will show the results and come back with a new `>` prompt to wait for new
-commands.
+If R is ready to accept commands, the R console shows a `>` prompt. If
+it receives a command (by typing, copy-pasting or sent from the script
+editor using `Ctrl` + `Enter`), R will try to execute it, and when
+ready, will show the results and come back with a new `>` prompt to
+wait for new commands.
 
-If R is still waiting for you to enter more data because it isn't complete yet,
-the console will show a `+` prompt. It means that you haven't finished entering
-a complete command. This is because you have not 'closed' a parenthesis or
-quotation, i.e. you don't have the same number of left-parentheses as
-right-parentheses, or the same number of opening and closing quotation marks.
-When this happens, and you thought you finished typing your command, click
-inside the console window and press <kbd>`Esc`</kbd>; this will cancel the incomplete
-command and return you to the `>` prompt.
+If R is still waiting for you to enter more data because it isn't
+complete yet, the console will show a `+` prompt. It means that you
+haven't finished entering a complete command. This is because you have
+not 'closed' a parenthesis or quotation, i.e. you don't have the same
+number of left-parentheses as right-parentheses, or the same number of
+opening and closing quotation marks.  When this happens, and you
+thought you finished typing your command, click inside the console
+window and press `Esc`; this will cancel the incomplete command and
+return you to the `>` prompt.
 
 
-## How to learn more after the workshop?
+## How to learn more during and after the course?
 
-The material we cover during this workshop will give you an initial
-taste of how you can use R to analyze data for your own
+The material we cover during this course will give you an initial
+taste of how you can use R to analyse data for your own
 research. However, you will need to learn more to do advanced
 operations such as cleaning your dataset, using statistical methods,
-or creating beautiful graphics. The best way to become proficient and
-efficient at R, as with any other tool, is to use it to address your
-actual research questions. As a beginner, it can feel daunting to have
-to write a script from scratch, and given that many people make their
-code available online, modifying existing code to suit your purpose
-might make it easier for you to get started.
+or creating beautiful graphics[^inthiscoure]. The best way to become
+proficient and efficient at R, as with any other tool, is to use it to
+address your actual research questions. As a beginner, it can feel
+daunting to have to write a script from scratch, and given that many
+people make their code available online, modifying existing code to
+suit your purpose might make it easier for you to get started.
 
+[^inthiscoure]: We will introduce most of these (except statistics)
+    here, but will only manage to scratch the surface of the wealth of
+    what is possible to do with R.
 
 ```{r kitten, results='markup', echo=FALSE, purl=FALSE, out.width='400px', fig.align='center'}
 knitr::include_graphics("./figs/kitten-try-things.jpg")
 ```
-
 
 ## Seeking help
 
@@ -386,46 +450,56 @@ but it is full of useful information.
 
 ### Asking for help {-}
 
-The key to receiving help from someone is for them to rapidly grasp your
-problem. You should make it as easy as possible to pinpoint where the issue
-might be.
+The key to receiving help from someone is for them to rapidly grasp
+your problem. You should make it as easy as possible to pinpoint where
+the issue might be.
 
-Try to use the correct words to describe your problem. For instance, a package
-is not the same thing as a library. Most people will understand what you meant,
-but others have really strong feelings about the difference in meaning. The key
-point is that it can make things confusing for people trying to help you. Be as
-precise as possible when describing your problem.
+Try to use the correct words to describe your problem. For instance, a
+package is not the same thing as a library. Most people will
+understand what you meant, but others have really strong feelings
+about the difference in meaning. The key point is that it can make
+things confusing for people trying to help you. Be as precise as
+possible when describing your problem.
 
 If possible, try to reduce what doesn't work to a simple *reproducible
-example*. If you can reproduce the problem using a very small data frame
-instead of your 50,000 rows and 10,000 columns one, provide the small one with
-the description of your problem. When appropriate, try to generalize what you
-are doing so even people who are not in your field can understand the
-question. For instance instead of using a subset of your real dataset, create a
-small (3 columns, 5 rows) generic one. For more information on how to write a
-reproducible example see [this article by Hadley Wickham](http://adv-r.had.co.nz/Reproducibility.html).
+example*. If you can reproduce the problem using a very small data
+frame instead of your 50000 rows and 10000 columns one, provide the
+small one with the description of your problem. When appropriate, try
+to generalize what you are doing so even people who are not in your
+field can understand the question. For instance instead of using a
+subset of your real dataset, create a small (3 columns, 5 rows)
+generic one. For more information on how to write a reproducible
+example see [this article by Hadley
+Wickham](http://adv-r.had.co.nz/Reproducibility.html).
 
-To share an object with someone else, if it's relatively small, you can use the
-function `dput()`. It will output R code that can be used to recreate the exact
-same object as the one in memory:
+To share an object with someone else, if it's relatively small, you
+can use the function `dput()`. It will output R code that can be used
+to recreate the exact same object as the one in memory:
 
 ```{r, results='show', purl=FALSE}
-dput(head(iris)) # iris is an example data frame that comes with R and head() is a function that returns the first part of the data frame
+## iris is an example data frame that comes with R and head() is a
+## function that returns the first part of the data frame
+dput(head(iris))
 ```
 
-If the object is larger, provide either the raw file (i.e., your CSV file) with
-your script up to the point of the error (and after removing everything that is
-not relevant to your issue). Alternatively, in particular if your question is
-not related to a data frame, you can save any R object to a file:
+If the object is larger, provide either the raw file (i.e., your CSV
+file) with your script up to the point of the error (and after
+removing everything that is not relevant to your
+issue). Alternatively, in particular if your question is not related
+to a data frame, you can save any R object to a file[^export]:
 
 ```{r, eval=FALSE, purl=FALSE}
 saveRDS(iris, file="/tmp/iris.rds")
 ```
 
-The content of this file is however not human readable and cannot be posted
-directly on Stack Overflow. Instead, it can be sent to someone by email who can
-read it with the `readRDS()` command (here it is assumed that the downloaded
-file is in a `Downloads` folder in the user's home directory):
+[^export]: See section \@ref(sec:exportandsave) for a better
+    introduction about exporting and saving data.
+
+The content of this file is however not human readable and cannot be
+posted directly on Stack Overflow. Instead, it can be sent to someone
+by email who can read it with the `readRDS()` command (here it is
+assumed that the downloaded file is in a `Downloads` folder in the
+user's home directory):
 
 ```{r, eval=FALSE, purl=FALSE}
 some_data <- readRDS(file="~/Downloads/iris.rds")
@@ -442,32 +516,36 @@ sessionInfo()
 
 ### Where to ask for help? {-}
 
-* The person sitting next to you during the workshop. Don't hesitate to talk to
-  your neighbor during the workshop, compare your answers, and ask for
-  help. You might also be interested in organizing regular meetings following
-  the workshop to keep learning from each other.
-* Your friendly colleagues: if you know someone with more experience than you,
-  they might be able and willing to help you.
-* [Stack Overflow](http://stackoverflow.com/questions/tagged/r): if your question
-  hasn't been answered before and is well crafted, chances are you will get an
-  answer in less than 5 min. Remember to follow their guidelines on [how to ask
-  a good question](http://stackoverflow.com/help/how-to-ask).
-* The [R-help mailing list](https://stat.ethz.ch/mailman/listinfo/r-help): it is
-  read by a lot of people (including most of the R core team), a lot of people
-  post to it, but the tone can be pretty dry, and it is not always very
-  welcoming to new users. If your question is valid, you are likely to get an
-  answer very fast but don't expect that it will come with smiley faces. Also,
-  here more than anywhere else, be sure to use correct vocabulary (otherwise
-  you might get an answer pointing to the misuse of your words rather than
-  answering your question). You will also have more success if your question is
-  about a base function rather than a specific package.
-* If your question is about a specific package, see if there is a mailing list
-  for it. Usually it's included in the DESCRIPTION file of the package that can
-  be accessed using `packageDescription("name-of-package")`. You may also want
-  to try to email the author of the package directly, or open an issue on the
+* The person sitting next to you during the course. Don't hesitate to
+  talk to your neighbour during the workshop, compare your answers,
+  and ask for help.
+* Your friendly colleagues: if you know someone with more experience
+  than you, they might be able and willing to help you.
+* [Stack Overflow](http://stackoverflow.com/questions/tagged/r): if
+  your question hasn't been answered before and is well crafted,
+  chances are you will get an answer in less than 5 min. Remember to
+  follow their guidelines on [how to ask a good
+  question](http://stackoverflow.com/help/how-to-ask).
+* The [R-help mailing
+  list](https://stat.ethz.ch/mailman/listinfo/r-help): it is read by a
+  lot of people (including most of the R core team), a lot of people
+  post to it, but the tone can be pretty dry, and it is not always
+  very welcoming to new users. If your question is valid, you are
+  likely to get an answer very fast but don't expect that it will come
+  with smiley faces. Also, here more than anywhere else, be sure to
+  use correct vocabulary (otherwise you might get an answer pointing
+  to the misuse of your words rather than answering your
+  question). You will also have more success if your question is about
+  a base function rather than a specific package.
+* If your question is about a specific package, see if there is a
+  mailing list for it. Usually it's included in the DESCRIPTION file
+  of the package that can be accessed using
+  `packageDescription("name-of-package")`. You may also want to try to
+  email the author of the package directly, or open an issue on the
   code repository (e.g., GitHub).
-* There are also some topic-specific mailing lists (GIS, phylogenetics, etc...),
-  the complete list is [here](http://www.r-project.org/mail.html).
+* There are also some topic-specific mailing lists (GIS,
+  phylogenetics, etc...), the complete list is
+  [here](http://www.r-project.org/mail.html).
 
 ### More resources {-}
 
@@ -484,10 +562,10 @@ sessionInfo()
 
 - The [reprex](https://cran.rstudio.com/web/packages/reprex/) package
   is very helpful to create reproducible examples when asking for
-  help. The [rOpenSci community call "How to ask questions so they get
-  answered"], [Github
+  help. The rOpenSci community call "How to ask questions so they get
+  answered" ([Github
   link](https://github.com/ropensci/commcalls/issues/14) and [video
-  recording](https://vimeo.com/208749032) includes a presentation of
+  recording](https://vimeo.com/208749032)) includes a presentation of
   the reprex package and of its philosophy.
 
 ## R packages
@@ -517,17 +595,17 @@ install.packages("dplyr")
 This command will install the `dplyr` package as well as all its
 dependencies, i.e. all the packages that it relies on to function.
 
-[Github](https://github.com/) is an general-pupose online software
+[Github](https://github.com/) is a general-pupose online software
 project repository and is well suited for R package development. To
 install a package from Gtihub, one can use the `install_github()`
 function from the `devtools` package. Below we first install the
-latter from CRAN (as show above), then we install `msmbstyle` directly
-from the user `lgatto`'s github repository.
+latter from CRAN (as show above), then we install `rWSBIM1207`
+directly from the user `UCLouvain-CBIO` github repository.
 
 ```{r ghinstall, eval=FALSE, purl=FALSE}
 install.packages("devtools")
 library("devtools")
-install_github("lgatto/msmbstyle")
+install_github("UCLouvain-CBIO/rWSBIM1207")
 ```
 
 In section \@ref(sec:bioconductor), we will see how to install
@@ -584,30 +662,34 @@ single keystroke in a PC, while typing <kbd>Option</kbd> +
 <kbd>-</kbd> (push <kbd>Option</kbd> at the same time as the
 <kbd>-</kbd> key) does the same in a Mac.
 
+### Naming variables
+
 Objects can be given any name such as `x`, `current_temperature`, or
-`subject_id`. You want your object names to be explicit and not too long. They
-cannot start with a number (`2x` is not valid, but `x2` is). R is case sensitive
-(e.g., `weight_kg` is different from `Weight_kg`). There are some names that
-cannot be used because they are the names of fundamental functions in R (e.g.,
-`if`, `else`, `for`, see
+`subject_id`. You want your object names to be explicit and not too
+long. They cannot start with a number (`2x` is not valid, but `x2`
+is). R is case sensitive (e.g., `weight_kg` is different from
+`Weight_kg`). There are some names that cannot be used because they
+are the names of fundamental functions in R (e.g., `if`, `else`,
+`for`, see
 [here](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html)
-for a complete list). In general, even if it's allowed, it's best to not use
-other function names (e.g., `c`, `T`, `mean`, `data`, `df`, `weights`). If in
-doubt, check the help to see if the name is already in use. It's also best to
-avoid dots (`.`) within an object name as in `my.dataset`. There are many
-functions in R with dots in their names for historical reasons, but because dots
-have a special meaning in R (for methods) and other programming languages, it's
-best to avoid them. It is also recommended to use nouns for object names, and
-verbs for function names. It's important to be consistent in the styling of your
-code (where you put spaces, how you name objects, etc.). Using a consistent
-coding style makes your code clearer to read for your future self and your
-collaborators. In R, three popular style guides are
-[Google's](https://google.github.io/styleguide/Rguide.xml), [Jean
+for a complete list). In general, even if it's allowed, it's best to
+not use other function names (e.g., `c`, `T`, `mean`, `data`, `df`,
+`weights`). If in doubt, check the help to see if the name is already
+in use. It's also best to avoid dots (`.`) within an object name as in
+`my.dataset`. There are many functions in R with dots in their names
+for historical reasons, but because dots have a special meaning in R
+(for methods) and other programming languages, it's best to avoid
+them. It is also recommended to use nouns for object names, and verbs
+for function names. It's important to be consistent in the styling of
+your code (where you put spaces, how you name objects, etc.). Using a
+consistent coding style makes your code clearer to read for your
+future self and your collaborators. In R, three popular style guides
+are [Google's](https://google.github.io/styleguide/Rguide.xml), [Jean
 Fan's](http://jef.works/R-style-guide/) and the
 [tidyverse's](http://style.tidyverse.org/). The tidyverse's is very
 comprehensive and may seem overwhelming at first. You can install the
-[**`lintr`**](https://github.com/jimhester/lintr) package to automatically check
-for issues in the styling of your code.
+[**`lintr`**](https://github.com/jimhester/lintr) package to
+automatically check for issues in the styling of your code.
 
 > **Objects vs. variables**
 >
@@ -656,19 +738,25 @@ and then change `weight_kg` to 100.
 weight_kg <- 100
 ```
 
-What do you think is the current content of the object `weight_lb`? 126.5 or 220?
+`r msmbstyle::question_begin()`
+
+What do you think is the current content of the object `weight_lb`?
+126.5 or 220?
+
+`r msmbstyle::question_end()`
 
 ### Comments
 
-The comment character in R is `#`, anything to the right of a `#` in a script
-will be ignored by R. It is useful to leave notes, and explanations in your
-scripts.
-RStudio makes it easy to comment or uncomment a paragraph: after selecting the
-lines you  want to comment, press at the same time on your keyboard
-<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>. If you only want to comment
-out one line, you can put the cursor at any location of that line (i.e. no need
-to select the whole line), then press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> +
-<kbd>C</kbd>.
+The comment character in R is `#`, anything to the right of a `#` in a
+script will be ignored by R. It is useful to leave notes, and
+explanations in your scripts.
+
+RStudio makes it easy to comment or uncomment a paragraph: after
+selecting the lines you want to comment, press at the same time on
+your keyboard <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>. If
+you only want to comment out one line, you can put the cursor at any
+location of that line (i.e. no need to select the whole line), then
+press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>.
 
 `r msmbstyle::question_begin()`
 What are the values after each statement in the following?
@@ -837,9 +925,10 @@ vector** types that R uses: `"character"` and `"numeric"` (or
 are built from. The other 4 **atomic vector** types are:
 
 * `"logical"` for `TRUE` and `FALSE` (the boolean data type)
-* `"integer"` for integer numbers (e.g., `2L`, the `L` indicates to R that it's an integer)
-* `"complex"` to represent complex numbers with real and imaginary parts (e.g.,
-  `1 + 4i`) and that's all we're going to say about them
+* `"integer"` for integer numbers (e.g., `2L`, the `L` indicates to R
+  that it's an integer)
+* `"complex"` to represent complex numbers with real and imaginary
+  parts (e.g., `1 + 4i`) and that's all we're going to say about them
 * `"raw"` for bitstreams that we won't discuss further
 
 You can check the type of your vector using the `typeof()` function
@@ -962,10 +1051,20 @@ more_animals <- animals[c(1, 2, 3, 2, 1, 4)]
 more_animals
 ```
 
-R indices start at 1. Programming languages like Fortran, MATLAB, Julia, and R start
-counting at 1, because that's what human beings typically do. Languages in the C
-family (including C++, Java, Perl, and Python) count from 0 because that's
-simpler for computers to do.
+R indices start at 1. Programming languages like Fortran, MATLAB,
+Julia, and R start counting at 1, because that's what human beings
+typically do. Languages in the C family (including C++, Java, Perl,
+and Python) count from 0 because that's simpler for computers to do.
+
+Finally, it is also possible to get all the elements of a vector
+except some specified elements using negative indices:
+
+```{r}
+animals ## all animals
+animals[-1] ## all but the first one
+animals[-c(1, 3)] ## all but 1st/3rd ones
+animals[c(-1, -3)] ## all but 1st/3rd ones
+```
 
 ### Conditional subsetting
 
@@ -1031,6 +1130,27 @@ Here "four" comes after "five", and therefore is "greater than" it.
 
 `r msmbstyle::solution_end()`
 
+### Names
+
+It is possible to name each element of a vector. The code chunk below
+show a initial vector without any names, how names are set, and
+retrieved.
+
+```{r}
+x <- c(1, 5, 3, 5, 10)
+names(x) ## no names
+names(x) <- c("A", "B", "C", "D", "E")
+names(x) ## now we have names
+```
+
+When a vector has names, it is possible to access elements by their
+name, in addition to their index.
+
+```{r}
+x[c(1, 3)]
+x[c("A", "C")]
+```
+
 ### Missing data
 
 As R was designed to analyze datasets, it includes the concept of missing data
@@ -1074,9 +1194,6 @@ heights[complete.cases(heights)]
 
 `r msmbstyle::question_begin()`
 
-Recall that you can use the `typeof()` function to find the type of
-your atomic vector.
-
 1. Using this vector of heights in inches, create a new vector with the NAs removed.
 ```{r}
 heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
@@ -1103,15 +1220,211 @@ length(heights_above_67)
 `r msmbstyle::solution_end()`
 
 
-```{r, echo=FALSE, purl=TRUE}
-## Question
-## 1. Using this vector of heights in inches, create a new vector with the NAs removed.
-##
-##    heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
-##
-## 2. Use the function `median()` to calculate the median of the `heights` vector.
-##
-## 3. Use R to figure out how many people in the set are taller than 67 inches.
+## Generating vectors {#sec:genvec}
+
+```{r, echo = FALSE}
+set.seed(1)
+```
+
+### Constructors {-}
+
+There exists some functions to generate vectors of different type. To
+generate a vector of numerics, one can use the `numerics()`
+constructor, providing the length of the output vector as
+parameter. The values will be initialised with 0.
+
+```{r}
+numeric(3)
+numeric(10)
+```
+
+Note that if we ask for a vector of numerics of length 0, we obtain
+exactly that:
+
+```{r}
+numeric(0)
+```
+
+There are similar constructors for characters and logicals, named
+`character()` and `logical()` respectively.
+
+`r msmbstyle::question_begin()`
+What are the defaults for character and logical vectors?
+`r msmbstyle::question_end()`
+
+`r msmbstyle::solution_begin()`
+```{r}
+character(2) ## the empty charater
+logical(2)   ## FALSE
+```
+`r msmbstyle::solution_end()`
+
+### Replicate elements {-}
+
+The `rep` function allow to repeat a value a certain number of
+times. If we want to initiate a vector of numerics of length 5 with
+the value -1, for example, we could do the following:
+
+```{r}
+rep(-1, 5)
+```
+
+Similarly, to generate a vector populated with missing values, which
+is often a good way to start, without setting assumptions on the data
+to be collected:
+
+```{r}
+rep(NA, 5)
+```
+
+`rep` can take vectors of any length as input (above, we used vectors
+of length 1) and any type. For example, if we want to repeat the
+values 1, 2 and 3 five times, we would do the following:
+
+```{r}
+rep(c(1, 2, 3), 5)
+```
+
+`r msmbstyle::question_begin()`
+What if we wanted to repeat the values 1, 2 and 3 five times, but
+obtain five 1s, five 2s and five 3s in that order? There are two
+possibilities - see `?rep` or `?sort` for help.
+`r msmbstyle::question_end()`
+
+`r msmbstyle::solution_begin()`
+```{r}
+rep(c(1, 2, 3), each = 5)
+sort(rep(c(1, 2, 3), 5))
+```
+`r msmbstyle::solution_end()`
+
+### Sequence generation {-}
+
+Another very useful function is `seq`, to generate a sequence of
+numbers. For example, to generate a sequence of integers from 1 to 20
+by steps of 2, one would use:
+
+```{r}
+seq(from = 1, to = 20, by = 2)
+```
+
+The default value of `by` is 1 and, given that the generate of a
+sequence of one value to another with steps of 1 is frequently used,
+there's a shortcut:
+
+```{r}
+seq(1, 5, 1)
+seq(1, 5) ## default by
+1:5
+```
+
+To generate a sequence of numbers from 1 to 20 of final length of 3,
+one would use:
+
+```{r}
+seq(from = 1, to = 20, length.out = 3)
+```
+
+### Random samples and permutations {-}
+
+A last group of useful functions are those that generate random
+data. The first one, `sample`, generates a random permutation of
+another vector. For example, to draw a random order to 10 students
+oral example, I first assign each student a number from 1 to then (for
+instance based on the alphabetic order of their name) and then:
+
+```{r}
+sample(1:10)
+```
+
+Without further arguments, `sample` will return a permutation of all
+elements of the vector. If I want a random sample of a certain size, I
+would set this value as second argument. Below, I sample 5 random
+letters from the alphabet contained in the pre-defined `letters` vector:
+
+```{r}
+sample(letters, 5)
+```
+
+If I wanted an output larger than the input vector, or being able to
+draw some elements multiple times, I would need to set the `replace`
+argument to `TRUE`:
+
+```{r}
+sample(1:5, 10, replace = TRUE)
+```
+
+`r msmbstyle::question_begin()`
+
+When trying the functions above out, you will have realised that the
+samples are indeed random and that one doesn't get the same
+permutation twice. To be able to reproduce these random draws, one can
+set the random number generation seed manually with `set.seed()`
+before drawing the random sample.
+
+- Test this feature with your neighbour. First draw two random
+  permutations of `1:10` independently and observe that you get
+  different results.
+
+- Now set the seed with, for example, `set.seed(123)` and repeat the
+  random draw. Observe that you now get the same random draws.
+
+- Repeat by setting a different seed.
+
+`r msmbstyle::question_end()`
+
+
+`r msmbstyle::solution_begin()`
+
+Different permutations
+
+```{r}
+sample(1:10)
+sample(1:10)
+```
+
+Same permutations with seed 123
+
+```{r}
+set.seed(123)
+sample(1:10)
+set.seed(123)
+sample(1:10)
+```
+
+A different seed
+
+```{r}
+set.seed(1)
+sample(1:10)
+set.seed(1)
+sample(1:10)
+```
+
+`r msmbstyle::solution_end()`
+
+### Drawing samples from a normal distribution {-}
+
+The last function we are going to see is `rnorm`, that draws a random
+sample from a normal distribution. Two normal distributions of means 0
+and 100 and standard deviations 1 and 5, noted noted *N(0, 1)* and
+*N(100, 5)*, are shown below
+
+```{r echo=FALSE, fig.width = 12, fig.height = 6, fig.cap = "Two normal distributions: *N(0, 1)* on the left and *N(100, 5)* on the right."}
+par(mfrow = c(1, 2))
+plot(density(rnorm(1000)), main = "", sub = "N(0, 1)")
+plot(density(rnorm(1000, 100, 5)), main = "", sub = "N(100, 5)")
+```
+
+The three arguments, `n`, `mean` and `sd`, define the size of the
+sample, and the parameters of the normal distribution, i.e the mean
+and its standard deviation. The defaults of the latter are 0 and 1.
+
+
+```{r}
+rnorm(5)
+rnorm(5, 2, 2)
+rnorm(5, 100, 5)
 ```
 
 Now that we have learned how to write scripts, and the basics of R's
@@ -1119,3 +1432,148 @@ data structures, we are ready to start working with larger data, and
 learn about data frames.
 
 ## Additional exercises
+
+
+`r msmbstyle::question_begin()`
+- Create two vectors `x` and `y` containing the numbers 1 to 10 and 10
+  to 1 respectively. You can use the `seq` or `:` functions rather
+  than constructing them by hand.
+- Check their type. Depending how they were created, they can be
+  integers or doubles.
+- Take the sum (see the `sum()` function) of each vector and verify
+  they are identical.
+- Sum vectors element-wise, and verify that all results are identical.
+- Swap the value or `x` and `y`.
+`r msmbstyle::question_end()`
+
+
+`r msmbstyle::question_begin()`
+- Create a vector named x containing the numbers 20 to 2. Retrieve
+  elements that are strictly larger than 5 and smaller or equal than 15.
+
+- Remove the first 8 elements from `x` and store the result in `x2`.
+`r msmbstyle::question_end()`
+
+
+<!-- `r msmbstyle::solution_begin()` -->
+<!-- ```{r} -->
+<!-- x <- 20:2 -->
+<!-- x -->
+<!-- x[x > 5 & x < 15] -->
+<!-- x2 <- x[-(1:8)] -->
+<!-- ``` -->
+<!-- `r msmbstyle::solution_end()` -->
+
+
+`r msmbstyle::question_begin()`
+
+You're doing an colony counting experiment, counting every day, from
+Monday to Friday how many molds you see in your cell cultures.
+
+- Create a vector named `molds` containing the results of your counts:
+  1, 2, 5, 8 and 10.
+
+- Set the names of `molds` using week days and extract the number of
+  molds identified on Wednesday.
+
+`r msmbstyle::question_end()`
+
+<!-- `r msmbstyle::solution_begin()` -->
+<!-- ```{r} -->
+<!-- molds <- c(1, 2, 5, 8, 10) -->
+<!-- days <-  c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday") -->
+<!-- names(molds) <- days -->
+<!-- molds["Wednesday"] -->
+<!-- ``` -->
+<!-- `r msmbstyle::solution_end()` -->
+
+`r msmbstyle::question_begin()`
+- Calculate the mean of a random distribution *N(15, 1)* of size 100
+  and store it in variable `m1`.
+- Calculate the mean of a random distribution *N(0, 1)* of size 100
+  and store it in variable `m2`.
+- Calculate the mean of another random distribution *N(15, 1)* of size
+  1000 and store it in variable `m3`.
+- Can you guess with one of `m1` and `m2` will be larger? Verify in R.
+- Can you guess with one of `m1` and `m3` will be larger? Verify in R.
+`r msmbstyle::question_end()`
+
+`r msmbstyle::question_begin()`
+
+- Using the `sample` function, simulate a set of 100 students voting
+  (randomly) for 1, 2 or 3 breaks during the WSBIM1207 course.
+
+- Display the values as  a table of votes.
+
+- Compute the number of students that wanted more that 1 break.
+
+- Bonus: as above, but setting the probability for votes to 1/5, 2/5
+  and 2/5 respectively. Read `?sample` to find out how to do that.
+
+`r msmbstyle::question_end()`
+
+
+<!-- `r msmbstyle::solution_begin()` -->
+<!-- ```{r} -->
+<!-- m1 <- mean(rnorm(100, 15, 1)) -->
+<!-- m2 <- mean(rnorm(100, 0, 1)) -->
+<!-- m3 <- mean(rnorm(1000, 15, 1)) -->
+
+<!-- ## From the nature of the distributions, I expect m1 > m2 -->
+<!-- m1 > m2 -->
+
+<!-- ## I cannot predict which one of m1 and m3 will be larger, only that -->
+<!-- ## they will be very close to each other, variating around 15 -->
+<!-- m1 -->
+<!-- m3 -->
+<!-- ``` -->
+<!-- `r msmbstyle::solution_end()` -->
+
+
+<!-- `r msmbstyle::question_begin()` -->
+
+<!-- Given vectors `v1`, `v2` and `v3` below -->
+
+<!-- ```{r} -->
+<!-- v1 <- c(1, 2, 3, "4") -->
+<!-- v2 <- c(45, 23, TRUE, 21, 12, 34) -->
+<!-- v3 <- c(v1, v2) -->
+<!-- ``` -->
+
+<!-- - What is the class of `v3`? -->
+<!-- - What is the length of `v3`? -->
+<!-- - Assign names `"a"`, `"b"`, .. to the `v3`. -->
+<!-- - What is the value of `v3["e"]`? -->
+<!-- - Re-using `v1`, create a vector `v4` containing -->
+
+<!-- ```{r, echo = FALSE, comment = NA} -->
+<!-- (v4 <- c(v1[2:1], "NEW", v1[3:4])) -->
+<!-- ``` -->
+
+<!-- - What is the command to round 3.1234 to two decimanl digits? -->
+
+<!-- - If you execute `round(3.1234)`, you get `3`. Why? -->
+
+<!-- The WSBIM1207 students were asked how many breaks they wanted during -->
+<!-- the four-hour Thursday morning sessions. The answers are stored in -->
+<!-- vectors `p1` (only one break of 30 minutes), `p2` (two breaks of 15 -->
+<!-- minutes) and `p3` (three breaks of 10 minutes). -->
+
+<!-- ```{r} -->
+<!-- p1 <- c(1, 1, 1) -->
+<!-- names(p1) <- c("A34", "D3", "F12") -->
+<!-- p2 <- c(2, 2, 2, 2) -->
+<!-- names(p2) <- c("W4", "A21", "K7", "K8") -->
+<!-- p3 <- c(3, 3, 3, 3, 3, 3, 3) -->
+<!-- names(p3) <- c("D1", "D2", "A10", "D5", "D15", "A16", "B22") -->
+<!-- ``` -->
+
+
+<!-- - What command would you use to identify the number of respective -->
+<!--   answers? -->
+
+<!-- - Concatenate all answers into a single vector `p`. -->
+
+<!-- - What command would you use to get the vote for student `D2` from vector `p`? -->
+
+<!-- `r msmbstyle::question_end()` -->

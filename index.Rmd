@@ -17,33 +17,6 @@ bibliography: [refs.bib, packages.bib]
 ---
 
 
-```{r setup00}
-knitr::knit_hooks$set(answer = function(before, options, envir) {
-    if (before) {
-        paste(
-            "<div class=\"accordion\">",
-              "<h3 class=\"toc-ignore\">Answer</h3>",
-              "<div style=\"background: #fff;\">",  sep = "\n")
-    } else {
-        paste("</div>", "</div>", sep = "\n")
-    }
-})
-
-
-eng_text_answer <- knitr:::eng_html_asset(
-                               paste(
-                                   "<div class=\"accordion\">",
-                                   "<h3 class=\"toc-ignore\">Answer</h3>",
-                                   "<div style=\"background: #fff;\">",
-                                   "<p>",  sep = "\n"),
-                               paste(
-                                   "</div>", "</div>", "</p>", sep = "\n"
-                               )
-                           )
-
-knitr::knit_engines$set(text_answer = eng_text_answer)
-```
-
 # Preamble {-}
 
 The [WSBIM1207](https://uclouvain.be/cours-2018-wsbim1207.html) course
@@ -81,7 +54,7 @@ taught will be focused on practice.
 
 ## Motivation {-}
 
-Today, it is difficule to overestimate the very broad importance and
+Today, it is difficult to overestimate the very broad importance and
 impact of *data*. Given the abundance of data around us, and the
 sophistication of tools for their analysis and interpretation that are
 readily available, data has become a tool of profound social
@@ -179,9 +152,11 @@ respective chapters.
 ## Pre-requisites {-}
 
 There are no programming or technical pre-requisities for this course,
-other than basic computer usage, such as knowing about files and
-folders and downloading files. Software requirements are documented in
-the *Setup* section below.
+other than basic computer usage, such as knowing about files (binary
+and text files) and folders and downloading files. Familiarity with a
+spreadsheet editor is helpful for the first paragraph.
+
+Software requirements are documented in the *Setup* section below.
 
 ## About this course material {-}
 
